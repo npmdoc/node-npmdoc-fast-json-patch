@@ -1,17 +1,40 @@
 {
-    "buildNpmdoc":"fast-json-patch",
+    "author": "kai zhu <kaizhu256@gmail.com>",
+    "buildNpmdoc": "fast-json-patch",
+    "description": "api documentation for [fast-json-patch (v1.1.8)](https://github.com/Starcounter-Jack/JSON-Patch) [![npm package](https://img.shields.io/npm/v/npmdoc-fast-json-patch.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-fast-json-patch) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-fast-json-patch.svg)](https://travis-ci.org/npmdoc/node-npmdoc-fast-json-patch)",
     "devDependencies": {
-        "fast-json-patch": "*",
         "electron-lite": "kaizhu256/node-electron-lite#alpha",
+        "fast-json-patch": "*",
         "utility2": "kaizhu256/node-utility2#alpha"
     },
-    "name":"npmdoc-fast-json-patch",
+    "engines": {
+        "node": ">=4.0"
+    },
+    "homepage": "https://github.com/npmdoc/node-npmdoc-fast-json-patch",
+    "keywords": [
+        "documentation",
+        "fast-json-patch"
+    ],
+    "license": "MIT",
+    "main": "lib.npmdoc_fast_json_patch.js",
+    "name": "npmdoc-fast-json-patch",
+    "nameAlias": "npmdoc_fast_json_patch",
+    "nameOriginal": "npmdoc-fast-json-patch",
+    "os": [
+        "darwin",
+        "linux"
+    ],
     "repository": {
         "type": "git",
         "url": "https://github.com/npmdoc/node-npmdoc-fast-json-patch"
     },
     "scripts": {
-        "build-ci": "utility2 shReadmeTest build_ci.sh"
+        "build-ci": "utility2 shReadmeTest build_ci.sh",
+        "env": "env",
+        "heroku-postbuild": "(set -e; npm install \"kaizhu256/node-utility2#alpha\"; utility2 shDeployHeroku)",
+        "postinstall": "if [ -f npm_scripts.sh ]; then ./npm_scripts.sh postinstall; fi",
+        "start": "(set -e; export PORT=${PORT:-8080}; utility2 start test.js)",
+        "test": "(set -e; export PORT=$(utility2 shServerPortRandom); utility2 test test.js)"
     },
     "version": "0.0.1"
 }
