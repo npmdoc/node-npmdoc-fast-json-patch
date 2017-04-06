@@ -1,0 +1,1557 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/Starcounter-Jack/JSON-Patch"
+
+    >fast-json-patch (v1.1.8)</a>
+</h1>
+<h4>Fast implementation of JSON-Patch (RFC-6902) with duplex (observe changes) capabilities</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.fast-json-patch">module fast-json-patch</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fast-json-patch.JsonPatchError">
+            function <span class="apidocSignatureSpan">fast-json-patch.</span>JsonPatchError
+            <span class="apidocSignatureSpan">(message, name, index, operation, tree)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fast-json-patch.apply">
+            function <span class="apidocSignatureSpan">fast-json-patch.</span>apply
+            <span class="apidocSignatureSpan">(tree, patches, validate)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fast-json-patch.compare">
+            function <span class="apidocSignatureSpan">fast-json-patch.</span>compare
+            <span class="apidocSignatureSpan">(tree1, tree2)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fast-json-patch.generate">
+            function <span class="apidocSignatureSpan">fast-json-patch.</span>generate
+            <span class="apidocSignatureSpan">(observer)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fast-json-patch.observe">
+            function <span class="apidocSignatureSpan">fast-json-patch.</span>observe
+            <span class="apidocSignatureSpan">(obj, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fast-json-patch.unobserve">
+            function <span class="apidocSignatureSpan">fast-json-patch.</span>unobserve
+            <span class="apidocSignatureSpan">(root, observer)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fast-json-patch.validate">
+            function <span class="apidocSignatureSpan">fast-json-patch.</span>validate
+            <span class="apidocSignatureSpan">(sequence, tree)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fast-json-patch.validator">
+            function <span class="apidocSignatureSpan">fast-json-patch.</span>validator
+            <span class="apidocSignatureSpan">(operation, index, tree, existingPathFragment)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">fast-json-patch.</span>JsonPatchError.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">fast-json-patch.</span>default</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">fast-json-patch.</span>json_patch</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.fast-json-patch.JsonPatchError">module fast-json-patch.JsonPatchError</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fast-json-patch.JsonPatchError.JsonPatchError">
+            function <span class="apidocSignatureSpan">fast-json-patch.</span>JsonPatchError
+            <span class="apidocSignatureSpan">(message, name, index, operation, tree)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fast-json-patch.JsonPatchError.captureStackTrace">
+            function <span class="apidocSignatureSpan">fast-json-patch.JsonPatchError.</span>captureStackTrace
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">fast-json-patch.JsonPatchError.</span>stackTraceLimit</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.fast-json-patch.JsonPatchError.prototype">module fast-json-patch.JsonPatchError.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fast-json-patch.JsonPatchError.prototype.constructor">
+            function <span class="apidocSignatureSpan">fast-json-patch.JsonPatchError.prototype.</span>constructor
+            <span class="apidocSignatureSpan">(message, name, index, operation, tree)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.fast-json-patch.default">module fast-json-patch.default</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fast-json-patch.default.JsonPatchError">
+            function <span class="apidocSignatureSpan">fast-json-patch.default.</span>JsonPatchError
+            <span class="apidocSignatureSpan">(message, name, index, operation, tree)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fast-json-patch.default.apply">
+            function <span class="apidocSignatureSpan">fast-json-patch.default.</span>apply
+            <span class="apidocSignatureSpan">(tree, patches, validate)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fast-json-patch.default.compare">
+            function <span class="apidocSignatureSpan">fast-json-patch.default.</span>compare
+            <span class="apidocSignatureSpan">(tree1, tree2)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fast-json-patch.default.generate">
+            function <span class="apidocSignatureSpan">fast-json-patch.default.</span>generate
+            <span class="apidocSignatureSpan">(observer)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fast-json-patch.default.observe">
+            function <span class="apidocSignatureSpan">fast-json-patch.default.</span>observe
+            <span class="apidocSignatureSpan">(obj, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fast-json-patch.default.unobserve">
+            function <span class="apidocSignatureSpan">fast-json-patch.default.</span>unobserve
+            <span class="apidocSignatureSpan">(root, observer)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fast-json-patch.default.validate">
+            function <span class="apidocSignatureSpan">fast-json-patch.default.</span>validate
+            <span class="apidocSignatureSpan">(sequence, tree)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fast-json-patch.default.validator">
+            function <span class="apidocSignatureSpan">fast-json-patch.default.</span>validator
+            <span class="apidocSignatureSpan">(operation, index, tree, existingPathFragment)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.fast-json-patch.json_patch">module fast-json-patch.json_patch</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fast-json-patch.json_patch.JsonPatchError">
+            function <span class="apidocSignatureSpan">fast-json-patch.json_patch.</span>JsonPatchError
+            <span class="apidocSignatureSpan">(message, name, index, operation, tree)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fast-json-patch.json_patch.apply">
+            function <span class="apidocSignatureSpan">fast-json-patch.json_patch.</span>apply
+            <span class="apidocSignatureSpan">(tree, patches, validate)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fast-json-patch.json_patch.validate">
+            function <span class="apidocSignatureSpan">fast-json-patch.json_patch.</span>validate
+            <span class="apidocSignatureSpan">(sequence, tree)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fast-json-patch.json_patch.validator">
+            function <span class="apidocSignatureSpan">fast-json-patch.json_patch.</span>validator
+            <span class="apidocSignatureSpan">(operation, index, tree, existingPathFragment)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">fast-json-patch.json_patch.</span>default</span>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.fast-json-patch" id="apidoc.module.fast-json-patch">module fast-json-patch</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.fast-json-patch.JsonPatchError" id="apidoc.element.fast-json-patch.JsonPatchError">
+        function <span class="apidocSignatureSpan">fast-json-patch.</span>JsonPatchError
+        <span class="apidocSignatureSpan">(message, name, index, operation, tree)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function JsonPatchError(message, name, index, operation, tree) {
+    _super.call(this, message);
+    this.message = message;
+    this.name = name;
+    this.index = index;
+    this.operation = operation;
+    this.tree = tree;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fast-json-patch.apply" id="apidoc.element.fast-json-patch.apply">
+        function <span class="apidocSignatureSpan">fast-json-patch.</span>apply
+        <span class="apidocSignatureSpan">(tree, patches, validate)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function apply(tree, patches, validate) {
+    var results = [], p = 0, plen = patches.length, patch, key;
+    while (p &#x3c; plen) {
+        patch = patches[p];
+        p++;
+        // Find the object
+        var path = patch.path || &#x22;&#x22;;
+        var keys = path.split(&#x27;/&#x27;);
+        var obj = tree;
+        var t = 1; //skip empty element - http://jsperf.com/to-shift-or-not-to-shift
+        var len = keys.length;
+        var existingPathFragment = undefined;
+        while (true) {
+            key = keys[t];
+            if (validate) {
+                if (existingPathFragment === undefined) {
+                    if (obj[key] === undefined) {
+                        existingPathFragment = keys.slice(0, t).join(&#x27;/&#x27;);
+                    }
+                    else if (t == len - 1) {
+                        existingPathFragment = patch.path;
+                    }
+                    if (existingPathFragment !== undefined) {
+                        this.validator(patch, p - 1, tree, existingPathFragment);
+                    }
+                }
+            }
+            t++;
+            if (key === undefined) {
+                if (t &#x3e;= len) {
+                    results.push(rootOps[patch.op].call(patch, obj, key, tree)); // Apply patch
+                    break;
+                }
+            }
+            if (_isArray(obj)) {
+                if (key === &#x27;-&#x27;) {
+                    key = obj.length;
+                }
+                else {
+                    if (validate &#x26;&#x26; !isInteger(key)) {
+                        throw new JsonPatchError(&#x22;Expected an unsigned base-10 integer value, making the new referenced value the
+ array element with the zero-based index&#x22;, &#x22;OPERATION_PATH_ILLEGAL_ARRAY_INDEX&#x22;, p - 1, patch.path, patch);
+                    }
+                    key = parseInt(key, 10);
+                }
+                if (t &#x3e;= len) {
+                    if (validate &#x26;&#x26; patch.op === &#x22;add&#x22; &#x26;&#x26; key &#x3e; obj.length) {
+                        throw new JsonPatchError(&#x22;The specified index MUST NOT be greater than the number of elements in the array
+&#x22;, &#x22;OPERATION_VALUE_OUT_OF_BOUNDS&#x22;, p - 1, patch.path, patch);
+                    }
+                    results.push(arrOps[patch.op].call(patch, obj, key, tree)); // Apply patch
+                    break;
+                }
+            }
+            else {
+                if (key &#x26;&#x26; key.indexOf(&#x27;~&#x27;) != -1)
+                    key = key.replace(/~1/g, &#x27;/&#x27;).replace(/~0/g, &#x27;~&#x27;); // escape chars
+                if (t &#x3e;= len) {
+                    results.push(objOps[patch.op].call(patch, obj, key, tree)); // Apply patch
+                    break;
+                }
+            }
+            obj = obj[key];
+        }
+    }
+    return results;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```js
+var myobj = { firstName:&#x22;Albert&#x22;, contactDetails: { phoneNumbers: [ ] } };
+var patches = [
+   {op:&#x22;replace&#x22;, path:&#x22;/firstName&#x22;, value:&#x22;Joachim&#x22; },
+   {op:&#x22;add&#x22;, path:&#x22;/lastName&#x22;, value:&#x22;Wester&#x22; },
+   {op:&#x22;add&#x22;, path:&#x22;/contactDetails/phoneNumbers/0&#x22;, value:{ number:&#x22;555-123&#x22; }  }
+   ];
+jsonpatch.<span class="apidocCodeKeywordSpan">apply</span>( myobj, patches );
+// myobj == { firstName:&#x22;Joachim&#x22;, lastName:&#x22;Wester&#x22;, contactDetails:{ phoneNumbers[ {number:&#x22;555-123&#
+x22;} ] } };
+```
+Generating patches:
+
+```js
+var myobj = { firstName:&#x22;Joachim&#x22;, lastName:&#x22;Wester&#x22;, contactDetails: { phoneNumbers: [ { number:&#x22;555-123
+&#x22; }] } };
+observer = jsonpatch.observe( myobj );
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fast-json-patch.compare" id="apidoc.element.fast-json-patch.compare">
+        function <span class="apidocSignatureSpan">fast-json-patch.</span>compare
+        <span class="apidocSignatureSpan">(tree1, tree2)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function compare(tree1, tree2) {
+    var patches = [];
+    _generate(tree1, tree2, patches, &#x27;&#x27;);
+    return patches;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+//   { op:&#x22;add&#x22;, path=&#x22;/contactDetails/phoneNumbers/1&#x22;, value:{number:&#x22;456&#x22;}}];
+```
+Comparing two object trees:
+
+```js
+var objA = {user: {firstName: &#x22;Albert&#x22;, lastName: &#x22;Einstein&#x22;}};
+var objB = {user: {firstName: &#x22;Albert&#x22;, lastName: &#x22;Collins&#x22;}};
+var diff = jsonpatch.<span class="apidocCodeKeywordSpan">compare</span>(objA, objB));
+//diff == [{op: &#x22;replace&#x22;, path: &#x22;/user/lastName&#x22;, value: &#x22;Collins&#x22;}]
+```
+
+Validating a sequence of patches:
+
+```js
+var obj = {user: {firstName: &#x22;Albert&#x22;}};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fast-json-patch.generate" id="apidoc.element.fast-json-patch.generate">
+        function <span class="apidocSignatureSpan">fast-json-patch.</span>generate
+        <span class="apidocSignatureSpan">(observer)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function generate(observer) {
+    var mirror;
+    for (var i = 0, ilen = beforeDict.length; i &#x3c; ilen; i++) {
+        if (beforeDict[i].obj === observer.object) {
+            mirror = beforeDict[i];
+            break;
+        }
+    }
+    _generate(mirror.value, observer.object, observer.patches, &#x22;&#x22;);
+    if (observer.patches.length) {
+        apply(mirror.value, observer.patches);
+    }
+    var temp = observer.patches;
+    if (temp.length &#x3e; 0) {
+        observer.patches = [];
+        if (observer.callback) {
+            observer.callback(temp);
+        }
+    }
+    return temp;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+```js
+var myobj = { firstName:&#x22;Joachim&#x22;, lastName:&#x22;Wester&#x22;, contactDetails: { phoneNumbers: [ { number:&#x22;555-123
+&#x22; }] } };
+observer = jsonpatch.observe( myobj );
+myobj.firstName = &#x22;Albert&#x22;;
+myobj.contactDetails.phoneNumbers[0].number = &#x22;123&#x22;;
+myobj.contactDetails.phoneNumbers.push({number:&#x22;456&#x22;});
+var patches = jsonpatch.<span class="apidocCodeKeywordSpan">generate</span>(observer);
+// patches  == [
+//   { op:&#x22;replace&#x22;, path=&#x22;/firstName&#x22;, value:&#x22;Albert&#x22;},
+//   { op:&#x22;replace&#x22;, path=&#x22;/contactDetails/phoneNumbers/0/number&#x22;, value:&#x22;123&#x22;},
+//   { op:&#x22;add&#x22;, path=&#x22;/contactDetails/phoneNumbers/1&#x22;, value:{number:&#x22;456&#x22;}}];
+```
+Comparing two object trees:
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fast-json-patch.observe" id="apidoc.element.fast-json-patch.observe">
+        function <span class="apidocSignatureSpan">fast-json-patch.</span>observe
+        <span class="apidocSignatureSpan">(obj, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function observe(obj, callback) {
+    var patches = [];
+    var root = obj;
+    var observer;
+    var mirror = getMirror(obj);
+    if (!mirror) {
+        mirror = new Mirror(obj);
+        beforeDict.push(mirror);
+    }
+    else {
+        observer = getObserverFromMirror(mirror, callback);
+    }
+    if (observer) {
+        return observer;
+    }
+    observer = {};
+    mirror.value = deepClone(obj);
+    if (callback) {
+        observer.callback = callback;
+        observer.next = null;
+        var dirtyCheck = function () {
+            generate(observer);
+        };
+        var fastCheck = function () {
+            clearTimeout(observer.next);
+            observer.next = setTimeout(dirtyCheck);
+        };
+        if (typeof window !== &#x27;undefined&#x27;) {
+            if (window.addEventListener) {
+                window.addEventListener(&#x27;mouseup&#x27;, fastCheck);
+                window.addEventListener(&#x27;keyup&#x27;, fastCheck);
+                window.addEventListener(&#x27;mousedown&#x27;, fastCheck);
+                window.addEventListener(&#x27;keydown&#x27;, fastCheck);
+                window.addEventListener(&#x27;change&#x27;, fastCheck);
+            }
+            else {
+                document.documentElement.attachEvent(&#x27;onmouseup&#x27;, fastCheck);
+                document.documentElement.attachEvent(&#x27;onkeyup&#x27;, fastCheck);
+                document.documentElement.attachEvent(&#x27;onmousedown&#x27;, fastCheck);
+                document.documentElement.attachEvent(&#x27;onkeydown&#x27;, fastCheck);
+                document.documentElement.attachEvent(&#x27;onchange&#x27;, fastCheck);
+            }
+        }
+    }
+    observer.patches = patches;
+    observer.object = obj;
+    observer.unobserve = function () {
+        generate(observer);
+        clearTimeout(observer.next);
+        removeObserverFromMirror(mirror, observer);
+        if (typeof window !== &#x27;undefined&#x27;) {
+            if (window.removeEventListener) {
+                window.removeEventListener(&#x27;mouseup&#x27;, fastCheck);
+                window.removeEventListener(&#x27;keyup&#x27;, fastCheck);
+                window.removeEventListener(&#x27;mousedown&#x27;, fastCheck);
+                window.removeEventListener(&#x27;keydown&#x27;, fastCheck);
+            }
+            else {
+                document.documentElement.detachEvent(&#x27;onmouseup&#x27;, fastCheck);
+                document.documentElement.detachEvent(&#x27;onkeyup&#x27;, fastCheck);
+                document.documentElement.detachEvent(&#x27;onmousedown&#x27;, fastCheck);
+                document.documentElement.detachEvent(&#x27;onkeydown&#x27;, fastCheck);
+            }
+        }
+    };
+    mirror.observers.push(new ObserverInfo(callback, observer));
+    return observer;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+jsonpatch.apply( myobj, patches );
+// myobj == { firstName:&#x22;Joachim&#x22;, lastName:&#x22;Wester&#x22;, contactDetails:{ phoneNumbers[ {number:&#x22;555-123&#
+x22;} ] } };
+```
+Generating patches:
+
+```js
+var myobj = { firstName:&#x22;Joachim&#x22;, lastName:&#x22;Wester&#x22;, contactDetails: { phoneNumbers: [ { number:&#x22;555-123
+&#x22; }] } };
+observer = jsonpatch.<span class="apidocCodeKeywordSpan">observe</span>( myobj );
+myobj.firstName = &#x22;Albert&#x22;;
+myobj.contactDetails.phoneNumbers[0].number = &#x22;123&#x22;;
+myobj.contactDetails.phoneNumbers.push({number:&#x22;456&#x22;});
+var patches = jsonpatch.generate(observer);
+// patches  == [
+//   { op:&#x22;replace&#x22;, path=&#x22;/firstName&#x22;, value:&#x22;Albert&#x22;},
+//   { op:&#x22;replace&#x22;, path=&#x22;/contactDetails/phoneNumbers/0/number&#x22;, value:&#x22;123&#x22;},
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fast-json-patch.unobserve" id="apidoc.element.fast-json-patch.unobserve">
+        function <span class="apidocSignatureSpan">fast-json-patch.</span>unobserve
+        <span class="apidocSignatureSpan">(root, observer)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function unobserve(root, observer) {
+    observer.unobserve();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fast-json-patch.validate" id="apidoc.element.fast-json-patch.validate">
+        function <span class="apidocSignatureSpan">fast-json-patch.</span>validate
+        <span class="apidocSignatureSpan">(sequence, tree)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function validate(sequence, tree) {
+    try {
+        if (!_isArray(sequence)) {
+            throw new JsonPatchError(&#x27;Patch sequence must be an array&#x27;, &#x27;SEQUENCE_NOT_AN_ARRAY&#x27;);
+        }
+        if (tree) {
+            tree = JSON.parse(JSON.stringify(tree)); //clone tree so that we can safely try applying operations
+            apply.call(this, tree, sequence, true);
+        }
+        else {
+            for (var i = 0; i &#x3c; sequence.length; i++) {
+                this.validator(sequence[i], i);
+            }
+        }
+    }
+    catch (e) {
+        if (e instanceof JsonPatchError) {
+            return e;
+        }
+        else {
+            throw e;
+        }
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```
+
+Validating a sequence of patches:
+
+```js
+var obj = {user: {firstName: &#x22;Albert&#x22;}};
+var patches = [{op: &#x22;replace&#x22;, path: &#x22;/user/firstName&#x22;, value: &#x22;Albert&#x22;}, {op: &#x22;replace&#x22;,
+path: &#x22;/user/lastName&#x22;, value: &#x22;Einstein&#x22;}];
+var errors = jsonpatch.<span class="apidocCodeKeywordSpan">validate</span>(patches, obj);
+if (errors.length == 0) {
+ //there are no errors!
+}
+else {
+for (var i=0; i &#x3c; errors.length; i++) {
+  if (!errors[i]) {
+    console.log(&#x22;Valid patch at index&#x22;, i, patches[i]);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fast-json-patch.validator" id="apidoc.element.fast-json-patch.validator">
+        function <span class="apidocSignatureSpan">fast-json-patch.</span>validator
+        <span class="apidocSignatureSpan">(operation, index, tree, existingPathFragment)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function validator(operation, index, tree, existingPathFragment) {
+    if (typeof operation !== &#x27;object&#x27; || operation === null || _isArray(operation)) {
+        throw new JsonPatchError(&#x27;Operation is not an object&#x27;, &#x27;OPERATION_NOT_AN_OBJECT&#x27;, index, operation, tree);
+    }
+    else if (!objOps[operation.op]) {
+        throw new JsonPatchError(&#x27;Operation `op` property is not one of operations defined in RFC-6902&#x27;, &#x27;OPERATION_OP_INVALID&#x27;,
+index, operation, tree);
+    }
+    else if (typeof operation.path !== &#x27;string&#x27;) {
+        throw new JsonPatchError(&#x27;Operation `path` property is not a string&#x27;, &#x27;OPERATION_PATH_INVALID&#x27;, index, operation, tree);
+    }
+    else if (operation.path.indexOf(&#x27;/&#x27;) !== 0 &#x26;&#x26; operation.path.length &#x3e; 0) {
+        // paths that aren&#x27;t emptystring should start with &#x22;/&#x22;
+        throw new JsonPatchError(&#x27;Operation `path` property must start with &#x22;/&#x22;&#x27;, &#x27;OPERATION_PATH_INVALID&#x27;, index, operation, tree
+);
+    }
+    else if ((operation.op === &#x27;move&#x27; || operation.op === &#x27;copy&#x27;) &#x26;&#x26; typeof operation.from !== &#x27;string&#x27;) {
+        throw new JsonPatchError(&#x27;Operation `from` property is not present (applicable in `move` and `copy` operations)&#x27;, &#x27;OPERATION_FROM_REQUIRED
+&#x27;, index, operation, tree);
+    }
+    else if ((operation.op === &#x27;add&#x27; || operation.op === &#x27;replace&#x27; || operation.op === &#x27;test&#x27;) &#x26;&#x26; operation.value === undefined) {
+        throw new JsonPatchError(&#x27;Operation `value` property is not present (applicable in `add`, `replace` and `test` operations
+)&#x27;, &#x27;OPERATION_VALUE_REQUIRED&#x27;, index, operation, tree);
+    }
+    else if ((operation.op === &#x27;add&#x27; || operation.op === &#x27;replace&#x27; || operation.op === &#x27;test&#x27;) &#x26;&#x26; hasUndefined(operation.value)) {
+        throw new JsonPatchError(&#x27;Operation `value` property is not present (applicable in `add`, `replace` and `test` operations
+)&#x27;, &#x27;OPERATION_VALUE_CANNOT_CONTAIN_UNDEFINED&#x27;, index, operation, tree);
+    }
+    else if (tree) {
+        if (operation.op == &#x22;add&#x22;) {
+            var pathLen = operation.path.split(&#x22;/&#x22;).length;
+            var existingPathLen = existingPathFragment.split(&#x22;/&#x22;).length;
+            if (pathLen !== existingPathLen + 1 &#x26;&#x26; pathLen !== existingPathLen) {
+                throw new JsonPatchError(&#x27;Cannot perform an `add` operation at the desired path&#x27;, &#x27;OPERATION_PATH_CANNOT_ADD&#x27;, index
+, operation, tree);
+            }
+        }
+        else if (operation.op === &#x27;replace&#x27; || operation.op === &#x27;remove&#x27; || operation.op === &#x27;_get&#x27;) {
+            if (operation.path !== existingPathFragment) {
+                throw new JsonPatchError(&#x27;Cannot perform the operation at a path that does not exist&#x27;, &#x27;OPERATION_PATH_UNRESOLVABLE
+&#x27;, index, operation, tree);
+            }
+        }
+        else if (operation.op === &#x27;move&#x27; || operation.op === &#x27;copy&#x27;) {
+            var existingValue = { op: &#x22;_get&#x22;, path: operation.from, value: undefined };
+            var error = jsonpatch.validate([existingValue], tree);
+            if (error &#x26;&#x26; error.name === &#x27;OPERATION_PATH_UNRESOLVABLE&#x27;) {
+                throw new JsonPatchError(&#x27;Cannot perform the operation from a path that does not exist&#x27;, &#x27;OPERATION_FROM_UNRESOLVABLE
+&#x27;, index, operation, tree);
+            }
+        }
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+        if (obj[key] === undefined) {
+            existingPathFragment = keys.slice(0, t).join(&#x27;/&#x27;);
+        }
+        else if (t == len - 1) {
+            existingPathFragment = patch.path;
+        }
+        if (existingPathFragment !== undefined) {
+            this.<span class="apidocCodeKeywordSpan">validator</span>(patch, p - 1, tree, existingPathFragment);
+        }
+    }
+}
+t++;
+if (key === undefined) {
+    if (t &#x3e;= len) {
+        results[p - 1] = rootOps[patch.op].call(patch, obj, key, tree); // Apply patch
+...</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.fast-json-patch.JsonPatchError" id="apidoc.module.fast-json-patch.JsonPatchError">module fast-json-patch.JsonPatchError</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.fast-json-patch.JsonPatchError.JsonPatchError" id="apidoc.element.fast-json-patch.JsonPatchError.JsonPatchError">
+        function <span class="apidocSignatureSpan">fast-json-patch.</span>JsonPatchError
+        <span class="apidocSignatureSpan">(message, name, index, operation, tree)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function JsonPatchError(message, name, index, operation, tree) {
+    _super.call(this, message);
+    this.message = message;
+    this.name = name;
+    this.index = index;
+    this.operation = operation;
+    this.tree = tree;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fast-json-patch.JsonPatchError.captureStackTrace" id="apidoc.element.fast-json-patch.JsonPatchError.captureStackTrace">
+        function <span class="apidocSignatureSpan">fast-json-patch.JsonPatchError.</span>captureStackTrace
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function captureStackTrace() { [native code] }</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.fast-json-patch.JsonPatchError.prototype" id="apidoc.module.fast-json-patch.JsonPatchError.prototype">module fast-json-patch.JsonPatchError.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.fast-json-patch.JsonPatchError.prototype.constructor" id="apidoc.element.fast-json-patch.JsonPatchError.prototype.constructor">
+        function <span class="apidocSignatureSpan">fast-json-patch.JsonPatchError.prototype.</span>constructor
+        <span class="apidocSignatureSpan">(message, name, index, operation, tree)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function JsonPatchError(message, name, index, operation, tree) {
+    _super.call(this, message);
+    this.message = message;
+    this.name = name;
+    this.index = index;
+    this.operation = operation;
+    this.tree = tree;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.fast-json-patch.default" id="apidoc.module.fast-json-patch.default">module fast-json-patch.default</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.fast-json-patch.default.JsonPatchError" id="apidoc.element.fast-json-patch.default.JsonPatchError">
+        function <span class="apidocSignatureSpan">fast-json-patch.default.</span>JsonPatchError
+        <span class="apidocSignatureSpan">(message, name, index, operation, tree)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function JsonPatchError(message, name, index, operation, tree) {
+    _super.call(this, message);
+    this.message = message;
+    this.name = name;
+    this.index = index;
+    this.operation = operation;
+    this.tree = tree;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fast-json-patch.default.apply" id="apidoc.element.fast-json-patch.default.apply">
+        function <span class="apidocSignatureSpan">fast-json-patch.default.</span>apply
+        <span class="apidocSignatureSpan">(tree, patches, validate)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function apply(tree, patches, validate) {
+    var results = [], p = 0, plen = patches.length, patch, key;
+    while (p &#x3c; plen) {
+        patch = patches[p];
+        p++;
+        // Find the object
+        var path = patch.path || &#x22;&#x22;;
+        var keys = path.split(&#x27;/&#x27;);
+        var obj = tree;
+        var t = 1; //skip empty element - http://jsperf.com/to-shift-or-not-to-shift
+        var len = keys.length;
+        var existingPathFragment = undefined;
+        while (true) {
+            key = keys[t];
+            if (validate) {
+                if (existingPathFragment === undefined) {
+                    if (obj[key] === undefined) {
+                        existingPathFragment = keys.slice(0, t).join(&#x27;/&#x27;);
+                    }
+                    else if (t == len - 1) {
+                        existingPathFragment = patch.path;
+                    }
+                    if (existingPathFragment !== undefined) {
+                        this.validator(patch, p - 1, tree, existingPathFragment);
+                    }
+                }
+            }
+            t++;
+            if (key === undefined) {
+                if (t &#x3e;= len) {
+                    results.push(rootOps[patch.op].call(patch, obj, key, tree)); // Apply patch
+                    break;
+                }
+            }
+            if (_isArray(obj)) {
+                if (key === &#x27;-&#x27;) {
+                    key = obj.length;
+                }
+                else {
+                    if (validate &#x26;&#x26; !isInteger(key)) {
+                        throw new JsonPatchError(&#x22;Expected an unsigned base-10 integer value, making the new referenced value the
+ array element with the zero-based index&#x22;, &#x22;OPERATION_PATH_ILLEGAL_ARRAY_INDEX&#x22;, p - 1, patch.path, patch);
+                    }
+                    key = parseInt(key, 10);
+                }
+                if (t &#x3e;= len) {
+                    if (validate &#x26;&#x26; patch.op === &#x22;add&#x22; &#x26;&#x26; key &#x3e; obj.length) {
+                        throw new JsonPatchError(&#x22;The specified index MUST NOT be greater than the number of elements in the array
+&#x22;, &#x22;OPERATION_VALUE_OUT_OF_BOUNDS&#x22;, p - 1, patch.path, patch);
+                    }
+                    results.push(arrOps[patch.op].call(patch, obj, key, tree)); // Apply patch
+                    break;
+                }
+            }
+            else {
+                if (key &#x26;&#x26; key.indexOf(&#x27;~&#x27;) != -1)
+                    key = key.replace(/~1/g, &#x27;/&#x27;).replace(/~0/g, &#x27;~&#x27;); // escape chars
+                if (t &#x3e;= len) {
+                    results.push(objOps[patch.op].call(patch, obj, key, tree)); // Apply patch
+                    break;
+                }
+            }
+            obj = obj[key];
+        }
+    }
+    return results;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```js
+var myobj = { firstName:&#x22;Albert&#x22;, contactDetails: { phoneNumbers: [ ] } };
+var patches = [
+   {op:&#x22;replace&#x22;, path:&#x22;/firstName&#x22;, value:&#x22;Joachim&#x22; },
+   {op:&#x22;add&#x22;, path:&#x22;/lastName&#x22;, value:&#x22;Wester&#x22; },
+   {op:&#x22;add&#x22;, path:&#x22;/contactDetails/phoneNumbers/0&#x22;, value:{ number:&#x22;555-123&#x22; }  }
+   ];
+jsonpatch.<span class="apidocCodeKeywordSpan">apply</span>( myobj, patches );
+// myobj == { firstName:&#x22;Joachim&#x22;, lastName:&#x22;Wester&#x22;, contactDetails:{ phoneNumbers[ {number:&#x22;555-123&#
+x22;} ] } };
+```
+Generating patches:
+
+```js
+var myobj = { firstName:&#x22;Joachim&#x22;, lastName:&#x22;Wester&#x22;, contactDetails: { phoneNumbers: [ { number:&#x22;555-123
+&#x22; }] } };
+observer = jsonpatch.observe( myobj );
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fast-json-patch.default.compare" id="apidoc.element.fast-json-patch.default.compare">
+        function <span class="apidocSignatureSpan">fast-json-patch.default.</span>compare
+        <span class="apidocSignatureSpan">(tree1, tree2)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function compare(tree1, tree2) {
+    var patches = [];
+    _generate(tree1, tree2, patches, &#x27;&#x27;);
+    return patches;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+//   { op:&#x22;add&#x22;, path=&#x22;/contactDetails/phoneNumbers/1&#x22;, value:{number:&#x22;456&#x22;}}];
+```
+Comparing two object trees:
+
+```js
+var objA = {user: {firstName: &#x22;Albert&#x22;, lastName: &#x22;Einstein&#x22;}};
+var objB = {user: {firstName: &#x22;Albert&#x22;, lastName: &#x22;Collins&#x22;}};
+var diff = jsonpatch.<span class="apidocCodeKeywordSpan">compare</span>(objA, objB));
+//diff == [{op: &#x22;replace&#x22;, path: &#x22;/user/lastName&#x22;, value: &#x22;Collins&#x22;}]
+```
+
+Validating a sequence of patches:
+
+```js
+var obj = {user: {firstName: &#x22;Albert&#x22;}};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fast-json-patch.default.generate" id="apidoc.element.fast-json-patch.default.generate">
+        function <span class="apidocSignatureSpan">fast-json-patch.default.</span>generate
+        <span class="apidocSignatureSpan">(observer)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function generate(observer) {
+    var mirror;
+    for (var i = 0, ilen = beforeDict.length; i &#x3c; ilen; i++) {
+        if (beforeDict[i].obj === observer.object) {
+            mirror = beforeDict[i];
+            break;
+        }
+    }
+    _generate(mirror.value, observer.object, observer.patches, &#x22;&#x22;);
+    if (observer.patches.length) {
+        apply(mirror.value, observer.patches);
+    }
+    var temp = observer.patches;
+    if (temp.length &#x3e; 0) {
+        observer.patches = [];
+        if (observer.callback) {
+            observer.callback(temp);
+        }
+    }
+    return temp;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+```js
+var myobj = { firstName:&#x22;Joachim&#x22;, lastName:&#x22;Wester&#x22;, contactDetails: { phoneNumbers: [ { number:&#x22;555-123
+&#x22; }] } };
+observer = jsonpatch.observe( myobj );
+myobj.firstName = &#x22;Albert&#x22;;
+myobj.contactDetails.phoneNumbers[0].number = &#x22;123&#x22;;
+myobj.contactDetails.phoneNumbers.push({number:&#x22;456&#x22;});
+var patches = jsonpatch.<span class="apidocCodeKeywordSpan">generate</span>(observer);
+// patches  == [
+//   { op:&#x22;replace&#x22;, path=&#x22;/firstName&#x22;, value:&#x22;Albert&#x22;},
+//   { op:&#x22;replace&#x22;, path=&#x22;/contactDetails/phoneNumbers/0/number&#x22;, value:&#x22;123&#x22;},
+//   { op:&#x22;add&#x22;, path=&#x22;/contactDetails/phoneNumbers/1&#x22;, value:{number:&#x22;456&#x22;}}];
+```
+Comparing two object trees:
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fast-json-patch.default.observe" id="apidoc.element.fast-json-patch.default.observe">
+        function <span class="apidocSignatureSpan">fast-json-patch.default.</span>observe
+        <span class="apidocSignatureSpan">(obj, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function observe(obj, callback) {
+    var patches = [];
+    var root = obj;
+    var observer;
+    var mirror = getMirror(obj);
+    if (!mirror) {
+        mirror = new Mirror(obj);
+        beforeDict.push(mirror);
+    }
+    else {
+        observer = getObserverFromMirror(mirror, callback);
+    }
+    if (observer) {
+        return observer;
+    }
+    observer = {};
+    mirror.value = deepClone(obj);
+    if (callback) {
+        observer.callback = callback;
+        observer.next = null;
+        var dirtyCheck = function () {
+            generate(observer);
+        };
+        var fastCheck = function () {
+            clearTimeout(observer.next);
+            observer.next = setTimeout(dirtyCheck);
+        };
+        if (typeof window !== &#x27;undefined&#x27;) {
+            if (window.addEventListener) {
+                window.addEventListener(&#x27;mouseup&#x27;, fastCheck);
+                window.addEventListener(&#x27;keyup&#x27;, fastCheck);
+                window.addEventListener(&#x27;mousedown&#x27;, fastCheck);
+                window.addEventListener(&#x27;keydown&#x27;, fastCheck);
+                window.addEventListener(&#x27;change&#x27;, fastCheck);
+            }
+            else {
+                document.documentElement.attachEvent(&#x27;onmouseup&#x27;, fastCheck);
+                document.documentElement.attachEvent(&#x27;onkeyup&#x27;, fastCheck);
+                document.documentElement.attachEvent(&#x27;onmousedown&#x27;, fastCheck);
+                document.documentElement.attachEvent(&#x27;onkeydown&#x27;, fastCheck);
+                document.documentElement.attachEvent(&#x27;onchange&#x27;, fastCheck);
+            }
+        }
+    }
+    observer.patches = patches;
+    observer.object = obj;
+    observer.unobserve = function () {
+        generate(observer);
+        clearTimeout(observer.next);
+        removeObserverFromMirror(mirror, observer);
+        if (typeof window !== &#x27;undefined&#x27;) {
+            if (window.removeEventListener) {
+                window.removeEventListener(&#x27;mouseup&#x27;, fastCheck);
+                window.removeEventListener(&#x27;keyup&#x27;, fastCheck);
+                window.removeEventListener(&#x27;mousedown&#x27;, fastCheck);
+                window.removeEventListener(&#x27;keydown&#x27;, fastCheck);
+            }
+            else {
+                document.documentElement.detachEvent(&#x27;onmouseup&#x27;, fastCheck);
+                document.documentElement.detachEvent(&#x27;onkeyup&#x27;, fastCheck);
+                document.documentElement.detachEvent(&#x27;onmousedown&#x27;, fastCheck);
+                document.documentElement.detachEvent(&#x27;onkeydown&#x27;, fastCheck);
+            }
+        }
+    };
+    mirror.observers.push(new ObserverInfo(callback, observer));
+    return observer;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+jsonpatch.apply( myobj, patches );
+// myobj == { firstName:&#x22;Joachim&#x22;, lastName:&#x22;Wester&#x22;, contactDetails:{ phoneNumbers[ {number:&#x22;555-123&#
+x22;} ] } };
+```
+Generating patches:
+
+```js
+var myobj = { firstName:&#x22;Joachim&#x22;, lastName:&#x22;Wester&#x22;, contactDetails: { phoneNumbers: [ { number:&#x22;555-123
+&#x22; }] } };
+observer = jsonpatch.<span class="apidocCodeKeywordSpan">observe</span>( myobj );
+myobj.firstName = &#x22;Albert&#x22;;
+myobj.contactDetails.phoneNumbers[0].number = &#x22;123&#x22;;
+myobj.contactDetails.phoneNumbers.push({number:&#x22;456&#x22;});
+var patches = jsonpatch.generate(observer);
+// patches  == [
+//   { op:&#x22;replace&#x22;, path=&#x22;/firstName&#x22;, value:&#x22;Albert&#x22;},
+//   { op:&#x22;replace&#x22;, path=&#x22;/contactDetails/phoneNumbers/0/number&#x22;, value:&#x22;123&#x22;},
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fast-json-patch.default.unobserve" id="apidoc.element.fast-json-patch.default.unobserve">
+        function <span class="apidocSignatureSpan">fast-json-patch.default.</span>unobserve
+        <span class="apidocSignatureSpan">(root, observer)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function unobserve(root, observer) {
+    observer.unobserve();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fast-json-patch.default.validate" id="apidoc.element.fast-json-patch.default.validate">
+        function <span class="apidocSignatureSpan">fast-json-patch.default.</span>validate
+        <span class="apidocSignatureSpan">(sequence, tree)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function validate(sequence, tree) {
+    try {
+        if (!_isArray(sequence)) {
+            throw new JsonPatchError(&#x27;Patch sequence must be an array&#x27;, &#x27;SEQUENCE_NOT_AN_ARRAY&#x27;);
+        }
+        if (tree) {
+            tree = JSON.parse(JSON.stringify(tree)); //clone tree so that we can safely try applying operations
+            apply.call(this, tree, sequence, true);
+        }
+        else {
+            for (var i = 0; i &#x3c; sequence.length; i++) {
+                this.validator(sequence[i], i);
+            }
+        }
+    }
+    catch (e) {
+        if (e instanceof JsonPatchError) {
+            return e;
+        }
+        else {
+            throw e;
+        }
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```
+
+Validating a sequence of patches:
+
+```js
+var obj = {user: {firstName: &#x22;Albert&#x22;}};
+var patches = [{op: &#x22;replace&#x22;, path: &#x22;/user/firstName&#x22;, value: &#x22;Albert&#x22;}, {op: &#x22;replace&#x22;,
+path: &#x22;/user/lastName&#x22;, value: &#x22;Einstein&#x22;}];
+var errors = jsonpatch.<span class="apidocCodeKeywordSpan">validate</span>(patches, obj);
+if (errors.length == 0) {
+ //there are no errors!
+}
+else {
+for (var i=0; i &#x3c; errors.length; i++) {
+  if (!errors[i]) {
+    console.log(&#x22;Valid patch at index&#x22;, i, patches[i]);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fast-json-patch.default.validator" id="apidoc.element.fast-json-patch.default.validator">
+        function <span class="apidocSignatureSpan">fast-json-patch.default.</span>validator
+        <span class="apidocSignatureSpan">(operation, index, tree, existingPathFragment)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function validator(operation, index, tree, existingPathFragment) {
+    if (typeof operation !== &#x27;object&#x27; || operation === null || _isArray(operation)) {
+        throw new JsonPatchError(&#x27;Operation is not an object&#x27;, &#x27;OPERATION_NOT_AN_OBJECT&#x27;, index, operation, tree);
+    }
+    else if (!objOps[operation.op]) {
+        throw new JsonPatchError(&#x27;Operation `op` property is not one of operations defined in RFC-6902&#x27;, &#x27;OPERATION_OP_INVALID&#x27;,
+index, operation, tree);
+    }
+    else if (typeof operation.path !== &#x27;string&#x27;) {
+        throw new JsonPatchError(&#x27;Operation `path` property is not a string&#x27;, &#x27;OPERATION_PATH_INVALID&#x27;, index, operation, tree);
+    }
+    else if (operation.path.indexOf(&#x27;/&#x27;) !== 0 &#x26;&#x26; operation.path.length &#x3e; 0) {
+        // paths that aren&#x27;t emptystring should start with &#x22;/&#x22;
+        throw new JsonPatchError(&#x27;Operation `path` property must start with &#x22;/&#x22;&#x27;, &#x27;OPERATION_PATH_INVALID&#x27;, index, operation, tree
+);
+    }
+    else if ((operation.op === &#x27;move&#x27; || operation.op === &#x27;copy&#x27;) &#x26;&#x26; typeof operation.from !== &#x27;string&#x27;) {
+        throw new JsonPatchError(&#x27;Operation `from` property is not present (applicable in `move` and `copy` operations)&#x27;, &#x27;OPERATION_FROM_REQUIRED
+&#x27;, index, operation, tree);
+    }
+    else if ((operation.op === &#x27;add&#x27; || operation.op === &#x27;replace&#x27; || operation.op === &#x27;test&#x27;) &#x26;&#x26; operation.value === undefined) {
+        throw new JsonPatchError(&#x27;Operation `value` property is not present (applicable in `add`, `replace` and `test` operations
+)&#x27;, &#x27;OPERATION_VALUE_REQUIRED&#x27;, index, operation, tree);
+    }
+    else if ((operation.op === &#x27;add&#x27; || operation.op === &#x27;replace&#x27; || operation.op === &#x27;test&#x27;) &#x26;&#x26; hasUndefined(operation.value)) {
+        throw new JsonPatchError(&#x27;Operation `value` property is not present (applicable in `add`, `replace` and `test` operations
+)&#x27;, &#x27;OPERATION_VALUE_CANNOT_CONTAIN_UNDEFINED&#x27;, index, operation, tree);
+    }
+    else if (tree) {
+        if (operation.op == &#x22;add&#x22;) {
+            var pathLen = operation.path.split(&#x22;/&#x22;).length;
+            var existingPathLen = existingPathFragment.split(&#x22;/&#x22;).length;
+            if (pathLen !== existingPathLen + 1 &#x26;&#x26; pathLen !== existingPathLen) {
+                throw new JsonPatchError(&#x27;Cannot perform an `add` operation at the desired path&#x27;, &#x27;OPERATION_PATH_CANNOT_ADD&#x27;, index
+, operation, tree);
+            }
+        }
+        else if (operation.op === &#x27;replace&#x27; || operation.op === &#x27;remove&#x27; || operation.op === &#x27;_get&#x27;) {
+            if (operation.path !== existingPathFragment) {
+                throw new JsonPatchError(&#x27;Cannot perform the operation at a path that does not exist&#x27;, &#x27;OPERATION_PATH_UNRESOLVABLE
+&#x27;, index, operation, tree);
+            }
+        }
+        else if (operation.op === &#x27;move&#x27; || operation.op === &#x27;copy&#x27;) {
+            var existingValue = { op: &#x22;_get&#x22;, path: operation.from, value: undefined };
+            var error = jsonpatch.validate([existingValue], tree);
+            if (error &#x26;&#x26; error.name === &#x27;OPERATION_PATH_UNRESOLVABLE&#x27;) {
+                throw new JsonPatchError(&#x27;Cannot perform the operation from a path that does not exist&#x27;, &#x27;OPERATION_FROM_UNRESOLVABLE
+&#x27;, index, operation, tree);
+            }
+        }
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+        if (obj[key] === undefined) {
+            existingPathFragment = keys.slice(0, t).join(&#x27;/&#x27;);
+        }
+        else if (t == len - 1) {
+            existingPathFragment = patch.path;
+        }
+        if (existingPathFragment !== undefined) {
+            this.<span class="apidocCodeKeywordSpan">validator</span>(patch, p - 1, tree, existingPathFragment);
+        }
+    }
+}
+t++;
+if (key === undefined) {
+    if (t &#x3e;= len) {
+        results[p - 1] = rootOps[patch.op].call(patch, obj, key, tree); // Apply patch
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.fast-json-patch.json_patch" id="apidoc.module.fast-json-patch.json_patch">module fast-json-patch.json_patch</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.fast-json-patch.json_patch.JsonPatchError" id="apidoc.element.fast-json-patch.json_patch.JsonPatchError">
+        function <span class="apidocSignatureSpan">fast-json-patch.json_patch.</span>JsonPatchError
+        <span class="apidocSignatureSpan">(message, name, index, operation, tree)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function JsonPatchError(message, name, index, operation, tree) {
+    _super.call(this, message);
+    this.message = message;
+    this.name = name;
+    this.index = index;
+    this.operation = operation;
+    this.tree = tree;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fast-json-patch.json_patch.apply" id="apidoc.element.fast-json-patch.json_patch.apply">
+        function <span class="apidocSignatureSpan">fast-json-patch.json_patch.</span>apply
+        <span class="apidocSignatureSpan">(tree, patches, validate)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function apply(tree, patches, validate) {
+    var results = new Array(patches.length), p = 0, plen = patches.length, patch, key;
+    while (p &#x3c; plen) {
+        patch = patches[p];
+        p++;
+        // Find the object
+        var path = patch.path || &#x22;&#x22;;
+        var keys = path.split(&#x27;/&#x27;);
+        var obj = tree;
+        var t = 1; //skip empty element - http://jsperf.com/to-shift-or-not-to-shift
+        var len = keys.length;
+        var existingPathFragment = undefined;
+        while (true) {
+            key = keys[t];
+            if (validate) {
+                if (existingPathFragment === undefined) {
+                    if (obj[key] === undefined) {
+                        existingPathFragment = keys.slice(0, t).join(&#x27;/&#x27;);
+                    }
+                    else if (t == len - 1) {
+                        existingPathFragment = patch.path;
+                    }
+                    if (existingPathFragment !== undefined) {
+                        this.validator(patch, p - 1, tree, existingPathFragment);
+                    }
+                }
+            }
+            t++;
+            if (key === undefined) {
+                if (t &#x3e;= len) {
+                    results[p - 1] = rootOps[patch.op].call(patch, obj, key, tree); // Apply patch
+                    break;
+                }
+            }
+            if (_isArray(obj)) {
+                if (key === &#x27;-&#x27;) {
+                    key = obj.length;
+                }
+                else {
+                    if (validate &#x26;&#x26; !isInteger(key)) {
+                        throw new JsonPatchError(&#x22;Expected an unsigned base-10 integer value, making the new referenced value the
+ array element with the zero-based index&#x22;, &#x22;OPERATION_PATH_ILLEGAL_ARRAY_INDEX&#x22;, p - 1, patch.path, patch);
+                    }
+                    key = parseInt(key, 10);
+                }
+                if (t &#x3e;= len) {
+                    if (validate &#x26;&#x26; patch.op === &#x22;add&#x22; &#x26;&#x26; key &#x3e; obj.length) {
+                        throw new JsonPatchError(&#x22;The specified index MUST NOT be greater than the number of elements in the array
+&#x22;, &#x22;OPERATION_VALUE_OUT_OF_BOUNDS&#x22;, p - 1, patch.path, patch);
+                    }
+                    results[p - 1] = arrOps[patch.op].call(patch, obj, key, tree); // Apply patch
+                    break;
+                }
+            }
+            else {
+                if (key &#x26;&#x26; key.indexOf(&#x27;~&#x27;) != -1)
+                    key = key.replace(/~1/g, &#x27;/&#x27;).replace(/~0/g, &#x27;~&#x27;); // escape chars
+                if (t &#x3e;= len) {
+                    results[p - 1] = objOps[patch.op].call(patch, obj, key, tree); // Apply patch
+                    break;
+                }
+            }
+            obj = obj[key];
+        }
+    }
+    return results;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```js
+var myobj = { firstName:&#x22;Albert&#x22;, contactDetails: { phoneNumbers: [ ] } };
+var patches = [
+   {op:&#x22;replace&#x22;, path:&#x22;/firstName&#x22;, value:&#x22;Joachim&#x22; },
+   {op:&#x22;add&#x22;, path:&#x22;/lastName&#x22;, value:&#x22;Wester&#x22; },
+   {op:&#x22;add&#x22;, path:&#x22;/contactDetails/phoneNumbers/0&#x22;, value:{ number:&#x22;555-123&#x22; }  }
+   ];
+jsonpatch.<span class="apidocCodeKeywordSpan">apply</span>( myobj, patches );
+// myobj == { firstName:&#x22;Joachim&#x22;, lastName:&#x22;Wester&#x22;, contactDetails:{ phoneNumbers[ {number:&#x22;555-123&#
+x22;} ] } };
+```
+Generating patches:
+
+```js
+var myobj = { firstName:&#x22;Joachim&#x22;, lastName:&#x22;Wester&#x22;, contactDetails: { phoneNumbers: [ { number:&#x22;555-123
+&#x22; }] } };
+observer = jsonpatch.observe( myobj );
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fast-json-patch.json_patch.validate" id="apidoc.element.fast-json-patch.json_patch.validate">
+        function <span class="apidocSignatureSpan">fast-json-patch.json_patch.</span>validate
+        <span class="apidocSignatureSpan">(sequence, tree)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function validate(sequence, tree) {
+    try {
+        if (!_isArray(sequence)) {
+            throw new JsonPatchError(&#x27;Patch sequence must be an array&#x27;, &#x27;SEQUENCE_NOT_AN_ARRAY&#x27;);
+        }
+        if (tree) {
+            tree = JSON.parse(JSON.stringify(tree)); //clone tree so that we can safely try applying operations
+            apply.call(this, tree, sequence, true);
+        }
+        else {
+            for (var i = 0; i &#x3c; sequence.length; i++) {
+                this.validator(sequence[i], i);
+            }
+        }
+    }
+    catch (e) {
+        if (e instanceof JsonPatchError) {
+            return e;
+        }
+        else {
+            throw e;
+        }
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```
+
+Validating a sequence of patches:
+
+```js
+var obj = {user: {firstName: &#x22;Albert&#x22;}};
+var patches = [{op: &#x22;replace&#x22;, path: &#x22;/user/firstName&#x22;, value: &#x22;Albert&#x22;}, {op: &#x22;replace&#x22;,
+path: &#x22;/user/lastName&#x22;, value: &#x22;Einstein&#x22;}];
+var errors = jsonpatch.<span class="apidocCodeKeywordSpan">validate</span>(patches, obj);
+if (errors.length == 0) {
+ //there are no errors!
+}
+else {
+for (var i=0; i &#x3c; errors.length; i++) {
+  if (!errors[i]) {
+    console.log(&#x22;Valid patch at index&#x22;, i, patches[i]);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fast-json-patch.json_patch.validator" id="apidoc.element.fast-json-patch.json_patch.validator">
+        function <span class="apidocSignatureSpan">fast-json-patch.json_patch.</span>validator
+        <span class="apidocSignatureSpan">(operation, index, tree, existingPathFragment)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function validator(operation, index, tree, existingPathFragment) {
+    if (typeof operation !== &#x27;object&#x27; || operation === null || _isArray(operation)) {
+        throw new JsonPatchError(&#x27;Operation is not an object&#x27;, &#x27;OPERATION_NOT_AN_OBJECT&#x27;, index, operation, tree);
+    }
+    else if (!objOps[operation.op]) {
+        throw new JsonPatchError(&#x27;Operation `op` property is not one of operations defined in RFC-6902&#x27;, &#x27;OPERATION_OP_INVALID&#x27;,
+index, operation, tree);
+    }
+    else if (typeof operation.path !== &#x27;string&#x27;) {
+        throw new JsonPatchError(&#x27;Operation `path` property is not a string&#x27;, &#x27;OPERATION_PATH_INVALID&#x27;, index, operation, tree);
+    }
+    else if (operation.path.indexOf(&#x27;/&#x27;) !== 0 &#x26;&#x26; operation.path.length &#x3e; 0) {
+        // paths that aren&#x27;t emptystring should start with &#x22;/&#x22;
+        throw new JsonPatchError(&#x27;Operation `path` property must start with &#x22;/&#x22;&#x27;, &#x27;OPERATION_PATH_INVALID&#x27;, index, operation, tree
+);
+    }
+    else if ((operation.op === &#x27;move&#x27; || operation.op === &#x27;copy&#x27;) &#x26;&#x26; typeof operation.from !== &#x27;string&#x27;) {
+        throw new JsonPatchError(&#x27;Operation `from` property is not present (applicable in `move` and `copy` operations)&#x27;, &#x27;OPERATION_FROM_REQUIRED
+&#x27;, index, operation, tree);
+    }
+    else if ((operation.op === &#x27;add&#x27; || operation.op === &#x27;replace&#x27; || operation.op === &#x27;test&#x27;) &#x26;&#x26; operation.value === undefined) {
+        throw new JsonPatchError(&#x27;Operation `value` property is not present (applicable in `add`, `replace` and `test` operations
+)&#x27;, &#x27;OPERATION_VALUE_REQUIRED&#x27;, index, operation, tree);
+    }
+    else if ((operation.op === &#x27;add&#x27; || operation.op === &#x27;replace&#x27; || operation.op === &#x27;test&#x27;) &#x26;&#x26; hasUndefined(operation.value)) {
+        throw new JsonPatchError(&#x27;Operation `value` property is not present (applicable in `add`, `replace` and `test` operations
+)&#x27;, &#x27;OPERATION_VALUE_CANNOT_CONTAIN_UNDEFINED&#x27;, index, operation, tree);
+    }
+    else if (tree) {
+        if (operation.op == &#x22;add&#x22;) {
+            var pathLen = operation.path.split(&#x22;/&#x22;).length;
+            var existingPathLen = existingPathFragment.split(&#x22;/&#x22;).length;
+            if (pathLen !== existingPathLen + 1 &#x26;&#x26; pathLen !== existingPathLen) {
+                throw new JsonPatchError(&#x27;Cannot perform an `add` operation at the desired path&#x27;, &#x27;OPERATION_PATH_CANNOT_ADD&#x27;, index
+, operation, tree);
+            }
+        }
+        else if (operation.op === &#x27;replace&#x27; || operation.op === &#x27;remove&#x27; || operation.op === &#x27;_get&#x27;) {
+            if (operation.path !== existingPathFragment) {
+                throw new JsonPatchError(&#x27;Cannot perform the operation at a path that does not exist&#x27;, &#x27;OPERATION_PATH_UNRESOLVABLE
+&#x27;, index, operation, tree);
+            }
+        }
+        else if (operation.op === &#x27;move&#x27; || operation.op === &#x27;copy&#x27;) {
+            var existingValue = { op: &#x22;_get&#x22;, path: operation.from, value: undefined };
+            var error = jsonpatch.validate([existingValue], tree);
+            if (error &#x26;&#x26; error.name === &#x27;OPERATION_PATH_UNRESOLVABLE&#x27;) {
+                throw new JsonPatchError(&#x27;Cannot perform the operation from a path that does not exist&#x27;, &#x27;OPERATION_FROM_UNRESOLVABLE
+&#x27;, index, operation, tree);
+            }
+        }
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+        if (obj[key] === undefined) {
+            existingPathFragment = keys.slice(0, t).join(&#x27;/&#x27;);
+        }
+        else if (t == len - 1) {
+            existingPathFragment = patch.path;
+        }
+        if (existingPathFragment !== undefined) {
+            this.<span class="apidocCodeKeywordSpan">validator</span>(patch, p - 1, tree, existingPathFragment);
+        }
+    }
+}
+t++;
+if (key === undefined) {
+    if (t &#x3e;= len) {
+        results[p - 1] = rootOps[patch.op].call(patch, obj, key, tree); // Apply patch
+...</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>

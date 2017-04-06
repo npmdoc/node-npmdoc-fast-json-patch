@@ -1,0 +1,15 @@
+<svg height="190" width="720" xmlns="http://www.w3.org/2000/svg">
+<rect height="190" fill="#555" width="720"></rect>
+<text fill="#7f7" font-family="Courier New" font-size="12" xml:space="preserve">
+<tspan x="10" y="26">  0.  2017-04-06 22:16:20 +0000    73970 byte  .</tspan>
+<tspan x="10" y="42">  1.  2017-04-06 22:16:20 +0000     2652 byte  CONTRIBUTING.md</tspan>
+<tspan x="10" y="58">  2.  2017-04-06 22:16:20 +0000     1083 byte  LICENSE.txt</tspan>
+<tspan x="10" y="74">  3.  2017-04-06 22:16:20 +0000    10077 byte  README.md</tspan>
+<tspan x="10" y="90">  4.  2017-04-06 22:16:20 +0000     9050 byte  dist/json-patch-duplex.min.js</tspan>
+<tspan x="10" y="106">  5.  2017-04-06 22:16:20 +0000     6044 byte  dist/json-patch.min.js</tspan>
+<tspan x="10" y="122">  6.  2017-04-06 22:16:20 +0000     3497 byte  package.json</tspan>
+<tspan x="10" y="138">  7.  2017-04-06 22:16:20 +0000    24924 byte  src/json-patch-duplex.js</tspan>
+<tspan x="10" y="154">  8.  2017-04-06 22:16:20 +0000    16277 byte  src/json-patch.js</tspan>
+<tspan x="10" y="170">  9.  2017-04-06 22:16:20 +0000      366 byte  tsconfig.json</tspan>
+</text>
+</svg>
